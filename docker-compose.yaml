@@ -1,0 +1,16 @@
+services:
+  wall_db:
+    image: postgres:16.1
+    restart: always
+    env_file: .env
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: wallpassword
+      POSTGRES_DB: wall
+    ports:
+      - 5432:5432
+    volumes:
+      - wall_db_data:/var/lib/postgresql/data
+
+volumes:
+  wall_db_data:
